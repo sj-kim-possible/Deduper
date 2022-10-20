@@ -6,12 +6,14 @@ Define the problem:
 The overall goal of this script is to remove PCR-duplicate reads from a sam file using a reference genome. A PCR duplicate is an identical molecule made by PCR. PCR is used in sequencing to amplify species of interest so that there is enough DNA to sequence and also to quench the signal to noise ratio in sequencing. PCR duplicates create bias in the data by representing a sequence that isn't biologically present. Additionally, there is bias in amplification. For example, sequences with high G/C content doesn't amplify as well due to higher binding strength. Longer DNA sequences also don't amplify as easily. A sequence is a PCR duplicate when the chromosome, 5' start position, UMI, and strand are the same. Thus, this informs the strategy for removing PCR duplicates. The code must account for single-end data at minimum. Paired-end if I'm feelin it. Single-end data will result in more reads being flagged as duplicates since the data is less specific. 
 
 argparse options for:
+
 file: absolute path to sorted sam file that needs de-duplicating
 output file: filepath for deduplicated sam file
 umi: filepath for umi
 help: prints a useful help message
 
-*** high level functions ***
+### high level functions 
+
 def softClipper(cigar (str), strand (str), position(int)): --> int
 ''' takes a cigar string, strand, and position and calculates the 5' start position'''
     if strand == +:
@@ -21,6 +23,7 @@ def softClipper(cigar (str), strand (str), position(int)): --> int
     return fivePrimeStartPos
 
 examples:
+
 softClipper(10M, 0, 10) == 10
 softClipper(2S7M, 0, 10) == 8
 softClipper(10M, 16, 10) == 19
@@ -33,6 +36,7 @@ def posStrandCigarParser(cigar(str), position(int)):
     return position
 
 examples:
+
 posStrandCigarParser(10M, 10) == 10
 posStrandCigarParser(5S10M, 10) == 5
 
@@ -42,6 +46,8 @@ def negStrandCigarParser(cigar(str), position(int)):
     calculate genomic "length" of aligned read (handle M, I, D, N, S[r])
     incorporate soft clip amount to position
     return position
+
+examples:
 
 negStrandCigarParser(10M, 10) == 19
 negStrandCigarParser(10M5S, 10) == 24
@@ -53,6 +59,8 @@ def strandParser(strand(int)) -> str:
     if bitwise flag operation says strand is negative, strand = negative
     return strand
 
+examples:
+
 strandParser(0) == positive
 strandParser(4) == unmapped
 strandParser(16) == negative
@@ -62,9 +70,11 @@ def qnameParser(qname(str)) --> str:
 ''' takes qname string and parses it to return the umi '''
     return umi
 
+example:
+
 qnameParser(NS500451:154:HWKTMBGXX:1:11101:24260:1121:AAA) == AAA
 
-*** algorithm ***
+## algorithm
 
 ### first, set empty variables
 validUmis = load in umis into a set
