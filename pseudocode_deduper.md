@@ -77,24 +77,25 @@ qnameParser(NS500451:154:HWKTMBGXX:1:11101:24260:1121:AAA) == AAA
 ## algorithm
 
 ### first, set empty variables
-validUmis = load in umis into a set
-uniqueReads = set() # set to hold all unique reads to keep a record of what was seen
-dupes = 0 # counter for counting how many duplicate reads
-uniques = 0 # counter for counting the unique reads
-unmapped = 0 # counter for unmapped reads
+- validUmis = load in umis into a set
+- uniqueReads = set() # set to hold all unique reads to keep a record of what was seen
+- dupes = 0 # counter for counting how many duplicate reads
+- uniques = 0 # counter for counting the unique reads
+- unmapped = 0 # counter for unmapped reads
 
 ### start parsing sam file
-open and read in sam file
+- open and read in sam file
 
-while true:
-### variables necessary for finding a dupe - resets each line of sam file
-    cigar = ""
-    chrom = 0
-    strand = ""
-    position = 0
-    umi = ""
+- for line in file:
+- variables necessary for finding a dupe - resets each line of sam file
+    - cigar = ""
+    - chrom = 0
+    - strand = ""
+    - position = 0
+    - umi = ""
 
-    line = filehandle.readline()
+    - line = filehandle.readline()
+   
 # always have break condition for a while loop
     if line == "", # when we reach the end of the file...
         BREAK
