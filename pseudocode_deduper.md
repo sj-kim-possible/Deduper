@@ -2,6 +2,7 @@
 
 ## Part 1: Pseudocode
 Define the problem:
+
 The overall goal of this script is to remove PCR-duplicate reads from a sam file using a reference genome. A PCR duplicate is an identical molecule made by PCR. PCR is used in sequencing to amplify species of interest so that there is enough DNA to sequence and also to quench the signal to noise ratio in sequencing. PCR duplicates create bias in the data by representing a sequence that isn't biologically present. Additionally, there is bias in amplification. For example, sequences with high G/C content doesn't amplify as well due to higher binding strength. Longer DNA sequences also don't amplify as easily. A sequence is a PCR duplicate when the chromosome, 5' start position, UMI, and strand are the same. Thus, this informs the strategy for removing PCR duplicates. The code must account for single-end data at minimum. Paired-end if I'm feelin it. Single-end data will result in more reads being flagged as duplicates since the data is less specific. 
 
 argparse options for:
