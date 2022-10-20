@@ -95,17 +95,13 @@ qnameParser(NS500451:154:HWKTMBGXX:1:11101:24260:1121:AAA) == AAA
     - umi = ""
 
     - line = filehandle.readline()
-   
-# always have break condition for a while loop
-    if line == "", # when we reach the end of the file...
-        BREAK
 
 # start parsing record for info
-    if line starts with @:
-        continue
-    else:
-        splitLine = line.strip('/n')
-        splitLine = line.split(/t)
+- if line starts with @:
+    - continue
+- else:
+    - splitLine = line.strip('/n')
+    - splitLine = line.split(/t)
 
 # columns of each bit of info that we need
     cigar = column 6
