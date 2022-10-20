@@ -14,13 +14,13 @@ help: prints a useful help message
 
 ### high level functions 
 
-def softClipper(cigar (str), strand (str), position(int)): --> int
-''' takes a cigar string, strand, and position and calculates the 5' start position'''
-    if strand == +:
-        fivePrimeStartPos = posStrandCigarParser(cigar, position)
-    else strand == -:
-        fivePrimeStartPos = negStrandCigarParser(cigar)
-    return fivePrimeStartPos
+- def softClipper(cigar (str), strand (str), position(int)): --> int
+- ''' takes a cigar string, strand, and position and calculates the 5' start position'''
+-    if strand == +:
+-        fivePrimeStartPos = posStrandCigarParser(cigar, position)
+-    else strand == -:
+-        fivePrimeStartPos = negStrandCigarParser(cigar)
+-    return fivePrimeStartPos
 
 examples:
 
