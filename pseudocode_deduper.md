@@ -13,8 +13,8 @@ umi: filepath for umi
 help: prints a useful help message
 
 ### high level functions 
-
-- def softClipper(cigar (str), strand (str), position(int)): --> int
+```
+def softClipper(cigar (str), strand (str), position(int)): --> int
  ''' takes a cigar string, strand, and position and calculates the 5' start position'''
     if strand == +:
         fivePrimeStartPos = posStrandCigarParser(cigar, position)
@@ -73,7 +73,7 @@ def qnameParser(qname(str)) --> str:
 example:
 
 qnameParser(NS500451:154:HWKTMBGXX:1:11101:24260:1121:AAA) == AAA
-
+```
 ## algorithm
 
 ### first, set empty variables
