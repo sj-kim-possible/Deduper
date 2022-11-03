@@ -7,10 +7,10 @@ The overall goal of this script is to remove PCR-duplicate reads from a sam file
 
 argparse options for:
 
-file: absolute path to sorted sam file that needs de-duplicating
-output file: filepath for deduplicated sam file
-umi: filepath for umi
-help: prints a useful help message
+- file: absolute path to sorted sam file that needs de-duplicating
+- output file: filepath for deduplicated sam file
+- umi: filepath for umi
+- help: prints a useful help message
 
 ### high level functions 
 ```
