@@ -165,8 +165,9 @@ print(f"duplicates: {dupes}")
 print(f"invalid umis: {invalidUmis}")
 
 # ./kim_deduper.py -f ./test.sam -u ./STL96.txt -o ./STL96_test.sam
+# header lines: 24
 # total records: 76
-# unique records: 55
+# unique records: 54
 # duplicates: 21
 # invalid umis: 1
 
